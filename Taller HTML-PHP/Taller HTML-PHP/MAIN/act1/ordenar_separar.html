@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ordenar y Separar Numeros</title>
+    <link rel="stylesheet" href="calcular.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Ordenar y Separar Numeros</h2>
+        <input type="text" id="inputNumbers" placeholder="Ingrese numeros separados por comas">
+        <button onclick="sortAndSeparate()">Ordenar y Separar</button>
+
+        <h3>Numeros Ordenados de Menor a Mayor:</h3>
+        <ul id="sortedNumbers"></ul>
+
+        <h3>Numeros Pares Ordenados de Mayor a Menor:</h3>
+        <ul id="sortedEvenNumbers"></ul>
+
+        <h3>Numeros Impares Ordenados de Menor a Mayor:</h3>
+        <ul id="sortedOddNumbers"></ul>
+    </div>
+
+    <script>
+        function sortAndSeparate() {
+            const inputNumbers = document.getElementById("inputNumbers").value;
+            const numbers = inputNumbers.split(",").map(Number);
+
+            const sortedNumbers = numbers.slice().sort((a, b) => a - b);
+            const sortedEvenNumbers = numbers.filter(num => num % 2 === 0).sort((a, b) => b - a);
+            const sortedOddNumbers = numbers.filter(num => num % 2 !== 0).sort((a, b) => a - b);
+
+            displayNumbers(sortedNumbers, "sortedNumbers");
+            displayNumbers(sortedEvenNumbers, "sortedEvenNumbers");
+            displayNumbers(sortedOddNumbers, "sortedOddNumbers");
+        }
+
+        function displayNumbers(numbers, listId) {
+            const list = document.getElementById(listId);
+            list.innerHTML = "";
+            numbers.forEach(number => {
+                const listItem = document.createElement("li");
+                listItem.textContent = number;
+                list.appendChild(listItem);
+            });
+        }
+    </script>
+</body>
+<button onclick="window.history.back()">Regresar</button>
+</html>
+
+

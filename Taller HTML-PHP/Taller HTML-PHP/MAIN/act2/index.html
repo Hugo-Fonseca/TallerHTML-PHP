@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculadora de Areas</title>
+</head>
+<body>
+    <h1>Calculadora de Areas</h1>
+
+    <h2>Circulo</h2>
+    Radio: <input type="text" id="radio">
+    <button onclick="calcularAreaCirculo()">Calcular</button>
+    <p>Area del circulo: <span id="resultadoCirculo"></span></p>
+
+    <h2>Cuadrado</h2>
+    Lado: <input type="text" id="ladoCuadrado">
+    <button onclick="calcularAreaCuadrado()">Calcular</button>
+    <p>Area del cuadrado: <span id="resultadoCuadrado"></span></p>
+
+    <h2>Rectangulo</h2>
+    Base: <input type="text" id="baseRectangulo">
+    Altura: <input type="text" id="alturaRectangulo">
+    <button onclick="calcularAreaRectangulo()">Calcular</button>
+    <p>Area del rectángulo: <span id="resultadoRectangulo"></span></p>
+
+    <h2>Triangulo</h2>
+    Base: <input type="text" id="baseTriangulo">
+    Altura: <input type="text" id="alturaTriangulo">
+    <button onclick="calcularAreaTriangulo()">Calcular</button>
+    <p>Area del triangulo: <span id="resultadoTriangulo"></span></p>
+
+    <script>
+        function calcularAreaCirculo() {
+            const radio = parseFloat(document.getElementById('radio').value);
+            const area = Math.PI * radio * radio;
+            document.getElementById('resultadoCirculo').textContent = area.toFixed(2);
+        }
+
+        function calcularAreaCuadrado() {
+            const lado = parseFloat(document.getElementById('ladoCuadrado').value);
+            const area = lado * lado;
+            document.getElementById('resultadoCuadrado').textContent = area.toFixed(2);
+        }
+
+        function calcularAreaRectangulo() {
+            const base = parseFloat(document.getElementById('baseRectangulo').value);
+            const altura = parseFloat(document.getElementById('alturaRectangulo').value);
+            const area = base * altura;
+            document.getElementById('resultadoRectangulo').textContent = area.toFixed(2);
+        }
+
+        function calcularAreaTriangulo() {
+            const base = parseFloat(document.getElementById('baseTriangulo').value);
+            const altura = parseFloat(document.getElementById('alturaTriangulo').value);
+            const area = (base * altura) / 2;
+            document.getElementById('resultadoTriangulo').textContent = area.toFixed(2);
+        }
+    </script>
+</body>
+<button onclick="window.history.back()">Regresar</button>
+</html>
